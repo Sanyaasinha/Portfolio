@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sanya Sinha | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================
+       GLOBAL
+    ========================= */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#060816;
+      color:white;
+      overflow-x:hidden;
+      padding-top:100px;
+    }
+
+    /* =========================
+       ANIMATED BACKGROUND
+    ========================= */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:600px;
+      height:600px;
+      background:#7c3aed;
+      filter:blur(180px);
+      top:-200px;
+      left:-150px;
+      opacity:0.35;
+      z-index:-1;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#06b6d4;
+      filter:blur(180px);
+      bottom:-150px;
+      right:-120px;
+      opacity:0.3;
+      z-index:-1;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:fixed;
+      top:0;
+      left:0;
+
+      backdrop-filter:blur(14px);
+      background:rgba(10,10,20,0.7);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:700;
+
+      background:linear-gradient(to right,#8b5cf6,#06b6d4);
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      color:#d1d5db;
+      text-decoration:none;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#06b6d4;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section{
+      padding:110px 10%;
+      scroll-margin-top:120px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:60px;
+
+      background:linear-gradient(to right,#8b5cf6,#06b6d4);
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:75px;
+      line-height:1.1;
+      margin-bottom:15px;
+    }
+
+    .hero-text h2{
+      font-size:35px;
+      margin-bottom:20px;
+      color:#06b6d4;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      font-size:20px;
+      max-width:650px;
+      margin-bottom:35px;
+      line-height:1.8;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      margin-right:15px;
+      transition:0.3s;
+
+      background:linear-gradient(to right,#8b5cf6,#06b6d4);
+
+      color:white;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 30px rgba(6,182,212,0.3);
+    }
+
+    /* =========================
+       HERO IMAGE
+    ========================= */
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+
+    .profile-img{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      object-fit:cover;
+
+      border:6px solid #8b5cf6;
+
+      box-shadow:0 0 35px rgba(139,92,246,0.5);
+
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-18px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+
+    }
+
+    /* =========================
+       GLASS EFFECT
+    ========================= */
+
+    .glass{
+      background:rgba(255,255,255,0.06);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(14px);
+
+      border-radius:24px;
+
+      padding:35px;
+
+      transition:0.4s;
+    }
+
+    .glass:hover{
+      transform:translateY(-10px);
+
+      border-color:rgba(6,182,212,0.3);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about{
+      text-align:center;
+      font-size:18px;
+      color:#d1d5db;
+      line-height:1.8;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-grid{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(220px,1fr));
+
+      gap:25px;
+    }
+
+    .skill-card h3{
+      margin-bottom:12px;
+      font-size:24px;
+      color:#06b6d4;
+    }
+
+    .skill-card p{
+      color:#cbd5e1;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+
+      gap:25px;
+    }
+
+    .project-card h3{
+      margin-bottom:15px;
+      font-size:26px;
+    }
+
+    .project-card p{
+      color:#cbd5e1;
+      margin-bottom:20px;
+      line-height:1.7;
+    }
+
+    /* =========================
+       EDUCATION
+    ========================= */
+
+    .education-wrapper,
+    .contact-wrapper{
+      display:flex;
+      justify-content:center;
+    }
+
+    .education-card,
+    .contact-card{
+      max-width:700px;
+      width:100%;
+      text-align:center;
+    }
+
+    .education-card h3{
+      margin-bottom:15px;
+      color:#06b6d4;
+    }
+
+    .education-card p{
+      color:#cbd5e1;
+      margin-bottom:10px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-card p{
+      margin-bottom:18px;
+      color:#cbd5e1;
+    }
+
+    .contact-card a{
+      color:#06b6d4;
+      text-decoration:none;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      text-align:center;
+      padding:25px;
+      color:#94a3b8;
+
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      nav ul{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:50px;
+      }
+
+      .hero-text h2{
+        font-size:28px;
+      }
+
+      .hero-text p{
+        font-size:18px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .profile-img{
+        width:250px;
+        height:250px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      Portfolio
+    </div>
+
+    <ul>
+
+      <li><a href="#home">Home</a></li>
+
+      <li><a href="#about">About</a></li>
+
+      <li><a href="#skills">Skills</a></li>
+
+      <li><a href="#projects">Projects</a></li>
+
+      <li><a href="#education">Education</a></li>
+
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h1>
+        Hi, I'm Sanya Sinha
+      </h1>
+
+      <h2>
+        <span id="element"></span>
+      </h2>
+
+      <p>
+        I am a second-year Computer Science Engineering student passionate
+        about web development, programming, and building creative projects.
+      </p>
+
+      <a href="#contact" class="btn">
+        Contact Me
+      </a>
+
+      <a href="https://github.com/Sanyaasinha"
+         target="_blank"
+         class="btn">
+
+         GitHub
+
+      </a>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png"
+        alt="Profile"
+        class="profile-img"
+      >
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">
+      About Me
+    </h2>
+
+    <div class="glass about">
+
+      <p>
+        I am currently pursuing B.Tech in Computer Science Engineering.
+        My interests include web development, UI designing,
+        and exploring new technologies.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">
+      Skills
+    </h2>
+
+    <div class="skills-grid">
+
+      <div class="glass skill-card">
+        <h3>HTML5</h3>
+        <p>Building structured and semantic web pages.</p>
+      </div>
+
+      <div class="glass skill-card">
+        <h3>CSS3</h3>
+        <p>Creating responsive and attractive website designs.</p>
+      </div>
+
+      <div class="glass skill-card">
+        <h3>JavaScript</h3>
+        <p>Adding interactivity and functionality to websites.</p>
+      </div>
+
+      <div class="glass skill-card">
+        <h3>Java</h3>
+        <p>Learning programming fundamentals and OOP concepts.</p>
+      </div>
+
+      <div class="glass skill-card">
+        <h3>Git & GitHub</h3>
+        <p>Managing code and collaborating on projects.</p>
+      </div>
+
+      <div class="glass skill-card">
+        <h3>Problem Solving</h3>
+        <p>Improving logical thinking and coding efficiency.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">
+      Projects
+    </h2>
+
+    <div class="projects-grid">
+
+      <div class="glass project-card">
+
+        <h3>Portfolio Website</h3>
+
+        <p>
+          Personal portfolio website using HTML, CSS, and JavaScript.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>Calculator App</h3>
+
+        <p>
+          Simple calculator capable of arithmetic operations.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>To-Do List</h3>
+
+        <p>
+          Task management application with add/delete features.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2 class="section-title">
+      Education
+    </h2>
+
+    <div class="education-wrapper">
+
+      <div class="glass education-card">
+
+        <h3>
+          B.Tech in Computer Science Engineering
+        </h3>
+
+        <p>
+          Second Year Student
+        </p>
+
+        <p>
+          Focused on programming and web development.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="section-title">
+      Contact Me
+    </h2>
+
+    <div class="contact-wrapper">
+
+      <div class="glass contact-card">
+
+        <p>
+          <strong>Email:</strong>
+
+          <a href="mailto:sinhasanya21@gmail.com">
+            sinhasanya21@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+
+          <a href="https://github.com/Sanyaasinha" target="_blank">
+            github.com/Sanyaasinha
+          </a>
+        </p>
+
+        <p>
+          <strong>LinkedIn:</strong>
+
+          <a href="https://linkedin.com/in/sanya-sinha-4ab798338"
+             target="_blank">
+
+             linkedin.com/in/sanya-sinha-4ab798338
+
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Sanya Sinha | All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- TYPED JS -->
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <script>
+
+    var typed = new Typed('#element', {
+
+      strings: [
+        'Web Developer',
+        'CSE Student',
+        'Tech Enthusiast',
+        'Problem Solver'
+      ],
+
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+
+    });
+
+  </script>
+
+</body>
+</html>
